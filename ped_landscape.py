@@ -141,7 +141,7 @@ class Landscape:
             self.engine.show_debug(" ".join([bind_type, key, label]))
         
         
-        self.layout_tiles(self.layout)
+        self.layout_tiles()
         self.layout_headers()
             
     
@@ -207,9 +207,9 @@ class Landscape:
         return headers
         
     
-    def layout_tiles(self, layout):
+    def layout_tiles(self):
         """set tile and label positions according to layout"""
-        for kw, pos in layout().items():
+        for kw, pos in self.layout().items():
             tile = self.keywords[kw]["tile"]
             tile.pos = pos
             label = self.keywords[kw]["label"]
@@ -242,17 +242,17 @@ class Landscape:
             tile = kw["tile"]
             label = kw["label"]
             if name in self.project_keywords:
-                tile.visible = True
+                tile.highlighted = True
                 label.visible = True and self.labels_visible
             else:
-                tile.visible = False
+                tile.highlighted = False
                 label.visible = False 
                 
     def show_all(self):
         for kw in self.keywords.values():
             tile = kw["tile"]
             label = kw["label"]
-            tile.visible = True
+            tile.highlighted = True
             label.visible = True and self.labels_visible
                 
     def p(self):
@@ -272,6 +272,13 @@ class Landscape:
     def toggle_label_visibility(self):
         self.labels_visible = not self.labels_visible
         self.show_labels(self.labels_visible)
+        self.layout_tiles()
+        
+    def toggle_layout(self):
+        self.layout_name = "line" if self.layout_name == "pestel" else "pestel"
+        self.set_layout(self.layout_name)
+        self.layout_tiles()
+        self.layout_headers()
                    
     
     def bind_keys(self):
@@ -283,6 +290,7 @@ class Landscape:
         engine.bind_key("n", self.set_project_keywords, binding_name="Set project keywords")
         engine.bind_key("l", self.toggle_label_visibility)
         engine.bind_key("h", engine.toggle_visibility_cb(*self.headers.values()))
+        engine.bind_key("a", self.toggle_layout)
         
     def show(self):
         self.engine.run()
