@@ -148,6 +148,8 @@ class Landscape:
 
     def set_project_keywords(self, kws=None):
         self.project_keywords = kws or self.random_project_keywords()
+        if self.engine.debugmode:
+            print("Project Keywords set to:", self.project_keywords)
         self.highlight_project()
     
     def setup_engine(self, debug=True):
@@ -294,6 +296,7 @@ class Landscape:
         for key, bind_type, label in self.engine.get_keybinds():
             self.engine.show_debug(" ".join([bind_type, key, label]))
         
+        #self.engine.add_callback()
         self.engine.run()
         
     
@@ -313,6 +316,6 @@ if __name__ == '__main__':
         print(len(set(landscape.keyword_names) & kw_upper))
         print(len(kw_upper - set(landscape.keyword_names)), kw_upper - set(landscape.keyword_names))
         print("___")
-        landscape.engine.bind_key(str(i+1), lambda: landscape.set_project_keywords(project["keywords"]), binding_name=f"Project {i+1}")
+        landscape.engine.bind_key(str(i+1), lambda: landscape.set_project_keywords(list(set(landscape.keyword_names) & kw_upper)), binding_name=f"Project {i+1}")
     
     landscape.show()
