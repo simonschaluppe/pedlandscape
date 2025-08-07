@@ -51,7 +51,7 @@ def get_categorized_assets(image_folder_path=None) -> dict:
                 print(f"Non-image file {tile} in {category=}")
                 continue
             
-            landscape[category.name][tile.name[:-4]] = tile.as_posix()
+            landscape[category.name][tile.name[:-4].upper()] = tile.as_posix().upper()
     return landscape
 
 def get_all_assets(categorized_assets):
@@ -137,9 +137,7 @@ class Landscape:
         self._p = False
         self.bind_keys()
         
-        for key, bind_type, label in self.engine.get_keybinds():
-            self.engine.show_debug(" ".join([bind_type, key, label]))
-        
+
         
         self.layout_tiles()
         self.layout_headers()
@@ -293,9 +291,28 @@ class Landscape:
         engine.bind_key("a", self.toggle_layout)
         
     def show(self):
+        for key, bind_type, label in self.engine.get_keybinds():
+            self.engine.show_debug(" ".join([bind_type, key, label]))
+        
         self.engine.run()
         
     
 if __name__ == '__main__':
-    landscape = Landscape(layout="line", debug=False)
+    landscape = Landscape(layout="pestel", debug=True)
+    
+    print(landscape.keyword_names)
+    
+    import json
+    with open("all_results_may.json", "r", encoding="utf-8") as f:
+        projects = json.load(f)
+    
+    from functools import partial
+    for i, project in enumerate(projects):
+        kw_upper = set(k.upper() for k in project["keywords"])
+        print(len(kw_upper), kw_upper)
+        print(len(set(landscape.keyword_names) & kw_upper))
+        print(len(kw_upper - set(landscape.keyword_names)), kw_upper - set(landscape.keyword_names))
+        print("___")
+        landscape.engine.bind_key(str(i+1), lambda: landscape.set_project_keywords(project["keywords"]), binding_name=f"Project {i+1}")
+    
     landscape.show()

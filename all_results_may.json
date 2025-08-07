@@ -1,0 +1,596 @@
+[
+    {
+        "project": "PED-ACT",
+        "description": "Positive Energy District (PED) is graded as an essential component towards climate neutrality and smart cities. The development of PED brings great needs in new processes and the related cooperation among stakeholders. This project (\u2018PED-ACT\u2019) aims to optimise the process iteratively of PED development for enhanced stakeholder cooperation and reinforced decision-making.\nPED-ACT extracts the main characterization of PEDs automatically by machine learning approaches, through standardisation of the common database for existing PEDs, by focusing on Sweden, Turkey, and Austria. The digital PED references are then generated, based on a multi-criteria characterization matrix, by auto-matching the development needs/priorities from different stakeholders during bilateral learning and co-design processes among four specific cities (Borl\u00e4nge, Umea, Karsiyaka-Izmir, Ankara) and a county (Lower Austria). PED-ACT finally evaluates the feasibility of these digital PED references to further develop the replication/upscaling plans, towards \u2018climate-neutrality and smart cities\u2019 goals.\nPED-ACT deeply learns a wealth of information from the existing PEDs and then maps the practical needs for PED development in local contexts iteratively. It leads to concrete cooperation from the outset with support of data and involvement of stakeholders. The project results will reinforce decision-making of PEDs and support public administrators/local stakeholders in the new pathways and development.",
+        "keywords": [
+            "Cost Analysis",
+            "Ownership Structures",
+            "Business Models",
+            "Multi-level Legislation",
+            "Urban Landuse",
+            "District Regulation",
+            "Participative Instruments",
+            "Community Engagement",
+            "Social Innovation",
+            "Urban planning tools",
+            "District typologies",
+            "PED boundaries",
+            "Strategic planning",
+            "Governance Framework",
+            "Co-Creation",
+            "Simulation",
+            "Monitoring",
+            "Modeling Tools",
+            "Scalability",
+            "Climate Adaptation",
+            "Energy Efficiency",
+            "GHG Emissions",
+            "PE Balance",
+            "Decision Support Tools",
+            "Power Analysis",
+            "Local Renewable Production",
+            "Demand-Supply Balance",
+            "Energy Savings",
+            "interoperable databases",
+            "enhanced stakeholder cooperation"
+        ],
+        "deliverables": [
+            {
+                "name": "Governance model for PED-ACT Database",
+                "description": "null",
+                "keywords": [
+                    "Modeling Tools"
+                ]
+            },
+            {
+                "name": "Report of machine learning algorithms for in-depth learning of PED",
+                "description": "null",
+                "keywords": [
+                    "Simulation",
+                    "Modeling Tools"
+                ]
+            },
+            {
+                "name": "Digital PED references",
+                "description": "null",
+                "keywords": [
+                    "Simulation",
+                    "Modeling Tools"
+                ]
+            },
+            {
+                "name": "Guidelines, objectives and iterative framework for co-learning and co-creation",
+                "description": "null",
+                "keywords": [
+                    "Participative Instruments",
+                    "Community Engagement",
+                    "Social Innovation",
+                    "Co-Creation",
+                    "Distributive Implications"
+                ]
+            },
+            {
+                "name": "Replication plans towards climate neutrality",
+                "description": "null",
+                "keywords": [
+                    "Scalability",
+                    "Climate Adaptation"
+                ]
+            }
+        ]
+    },
+    {
+        "project": "PROPEL",
+        "description": "The overall project goal is to demonstrate and assess methods to improve viability in PEDs by technological and societal innovation in urban agriculture, green/waste management, and transport. Including new innovative components into PEDs enables resilient energy supply to the system of urban systems, including urban-rural\nrelationships and transports within this system, by developing ethic Business Models based on circularity of resources and social innovation. The innovative edge is the inclusion of innovative PED components and improving possibilities for off-grid operation to increase the robustness and viability of PEDs, utilizing viable Business Models and innovative types of energy carriers via recycling of energy in the food-feed system, biogas and including transports in the PED system of systems. The innovative components that are included into PEDs are other types of energy carriers, via the food system of an urban system, while providing ecosystem services (e.g. closing nutrient cycles ensuring food security, mitigating climate change), improving the liveability in urban areas, and harmonize the urban-rural relationship in Sweden, Turkey and Italy.",
+        "keywords": [
+            "Circular Economy",
+            "Business Models",
+            "Energy Communities",
+            "Community Engagement",
+            "Behavioural Change",
+            "Social Innovation",
+            "Urban planning tools",
+            "Mobility",
+            "PED boundaries",
+            "Co-Creation",
+            "Circularity",
+            "Climate Adaptation",
+            "Resource Efficiency",
+            "PE Balance",
+            "City Missions",
+            "Decision Support Tools",
+            "Local Renewable Production",
+            "Energy Savings",
+            "Storage",
+            "interoperable databases",
+            "enhanced stakeholder cooperation"
+        ],
+        "deliverables": [
+            {
+                "name": "PED Baseline and Context",
+                "description": "null",
+                "keywords": [
+                    "Community Engagement",
+                    "Urban planning tools",
+                    "PED boundaries",
+                    "City Missions",
+                    "Demand-Supply Balance"
+                ]
+            },
+            {
+                "name": "Business Model Framework",
+                "description": "null",
+                "keywords": [
+                    "Financial Strategies",
+                    "Business Models",
+                    "Participative Instruments",
+                    "Community Engagement",
+                    "Distributive Implications"
+                ]
+            },
+            {
+                "name": "Decision Support System Evaluation as innovative PED component",
+                "description": "null",
+                "keywords": [
+                    "Wellbeing",
+                    "Urban planning tools",
+                    "Strategic planning",
+                    "Local Renewable Production",
+                    "Demand-Supply Balance"
+                ]
+            },
+            {
+                "name": "Food waste as energy carrier related to energy storage and transport energy needs evaluated as PED component",
+                "description": "null",
+                "keywords": [
+                    "Circular Economy",
+                    "Urban Landuse",
+                    "Strategic planning",
+                    "Circularity"
+                ]
+            },
+            {
+                "name": "Guidelines for PED design",
+                "description": "null",
+                "keywords": [
+                    "Support and Information",
+                    "Urban planning tools",
+                    "Co-Creation",
+                    "City Missions"
+                ]
+            },
+            {
+                "name": "Serious game implementation and demonstration",
+                "description": "null",
+                "keywords": [
+                    "Participative Instruments",
+                    "Community Engagement",
+                    "Narrative",
+                    "Urban planning tools",
+                    "Decision Support Tools"
+                ]
+            }
+        ]
+    },
+    {
+        "project": "PED4ALL",
+        "description": "Positive energy districts (PEDs) are key tools to deliver the European Green Deal and climate targets by 2030. However, PEDs are often introverted islands in cities and the challenge is how to integrate them into their existing contexts creating climate-neutral, resilient and liveable neighbourhoods. Visions, plans, projects, and solutions for PEDs exist, but defining concrete, innovative, inclusive, and shared co-designed strategies for existing urban structures and societies, implementing and replicating them, remains in many cases the next urgent task.\nBuilding on the results of TRANS-PED, the aim of PED4ALL is to develop feasible, operative, implementable and inclusive strategies that can be adopted by PED and neighbourhood stakeholders to realise a deep energy transition and holistic changes to cities. This three-year project will engage an action-oriented network of PED and neighbourhood stakeholders in Belgium, Italy, and Turkey to apply a shared co-productive methodology to define a set of energy, policy and regulatory, governance and social, spatial, and design strategies for urban transition and innovation, to test and replicate them. The project partners will engage in a series of online and in-person activities to co-produce a range of practical tools to build a community of practice and position Europe as a global role model for urban energy transformations.",
+        "keywords": [
+            "Affordability",
+            "Ownership Structures",
+            "Energy Communities",
+            "Innovative Institutional Change",
+            "Community Engagement",
+            "Everyday Practices",
+            "Wellbeing",
+            "Social Justice",
+            "Cultural Context",
+            "Urban planning tools",
+            "Strategic planning",
+            "Co-Creation",
+            "Resource Efficiency",
+            "Resilience",
+            "Governance Structure",
+            "Distributive Implications",
+            "interoperable databases",
+            "enhanced stakeholder cooperation"
+        ],
+        "deliverables": [
+            {
+                "name": "PED4ALL Co-Production Methodology Framework",
+                "description": "null",
+                "keywords": [
+                    "Community Engagement",
+                    "Co-Creation"
+                ]
+            },
+            {
+                "name": "PED4ALL Atlas",
+                "description": "null",
+                "keywords": [
+                    "Affordability",
+                    "Ownership Structures",
+                    "Energy Communities",
+                    "Community Engagement",
+                    "Everyday Practices",
+                    "Social Justice",
+                    "Urban planning tools",
+                    "Strategic planning",
+                    "Co-Creation",
+                    "Resource Efficiency",
+                    "Local Renewable Production",
+                    "Energy Savings",
+                    "Infrastructure"
+                ]
+            }
+        ]
+    },
+    {
+        "project": "INTERACT",
+        "description": "INTERACT \u2013 Integration of Innovative Technologies of Positive Energy Districts into a Holistic Architecture \u2013 is an international research and innovation project with a cross-sectional collaboration between academia, municipalities, and businesses with participants from Austria, the Czech Republic, and Sweden.\n\nINTERACT boosts the emergence of Energy Communities as one crucial building block to achieve Positive Energy Districts. The project will design an optimal organization and structure for Energy Communities based on:\n\na. success-factors from a competence-network of existing PED/PEN approaches,\nb. stakeholder needs and motivation,\nc. the available technologies, and\nd. a holistic architecture.\n\nThe project will develop a roadmap for the Energy Community\u2019s secure and reliable embedding into the power system structure, focusing on two pilot regions in Sweden and Austria.\n\nINTERACT is supported by the Austrian Ministry of Climate Action, Environment, Energy, Mobility, Innovation, and Technology (BMK), Technology Agency of the Czech Republic (TA\u010cR) and Swedish Energy Agency / Viable Cities, Sweden. It has received funding in the framework of the PED Programme, which is implemented by the Joint Programming Initiative Urban Europe and SET Plan Action 3.2.\n\nThe project has been selected for funding in Positive Energy Districts (PEDs) pilot call JPI Urban Europe and is planned for 24 months with start in February 2021.",
+        "keywords": [
+            "Marketplace",
+            "Business Models",
+            "Energy Communities",
+            "Community Engagement",
+            "Behavioural Change",
+            "Local Renewable Production",
+            "Infrastructure",
+            "interoperable databases",
+            "enhanced stakeholder cooperation"
+        ],
+        "deliverables": [
+            {
+                "name": "D 2.2 Stakeholder Needs",
+                "description": "null",
+                "keywords": [
+                    "Community Engagement",
+                    "Behavioural Change",
+                    "Social Innovation"
+                ]
+            },
+            {
+                "name": "D2.3 Key success factors and requirements for INTERACT Energy Communities",
+                "description": "null",
+                "keywords": [
+                    "Energy Communities",
+                    "Community Engagement"
+                ]
+            },
+            {
+                "name": "D3.1 Common inventory methodology for recording current technologies",
+                "description": "null",
+                "keywords": [
+                    "Marketplace",
+                    "District Regulation",
+                    "Energy Market"
+                ]
+            },
+            {
+                "name": "D3.3 LINK-ICT structure with communication guidelines between the actors within the electricity community",
+                "description": "null",
+                "keywords": [
+                    "Community Engagement",
+                    "Social Innovation",
+                    "Infrastructure"
+                ]
+            },
+            {
+                "name": "D 4.1 Design of the Energy Community Organization according to the LINK-Solution",
+                "description": "null",
+                "keywords": [
+                    "Ownership Structures",
+                    "Energy Communities"
+                ]
+            },
+            {
+                "name": "D 4.2 Use Cases for the integration of the existing innovative technologies with the LINK-solution",
+                "description": "null",
+                "keywords": [
+                    "Energy Communities"
+                ]
+            },
+            {
+                "name": "D 4.3 Marketplace structure and its interfaces with the Energy Community",
+                "description": "null",
+                "keywords": [
+                    "Marketplace",
+                    "Energy Communities"
+                ]
+            },
+            {
+                "name": "D.5.1 Current regulatory framework and differences between the PED-target countries",
+                "description": "null",
+                "keywords": [
+                    "District Regulation",
+                    "Regulation and Subsidies"
+                ]
+            },
+            {
+                "name": "D 5.2. Business cases for INTERACT Energy Communities",
+                "description": "null",
+                "keywords": [
+                    "Business Models",
+                    "Energy Communities"
+                ]
+            },
+            {
+                "name": "D 5.3. Required contracting models and economic evaluation of the solution",
+                "description": "null",
+                "keywords": [
+                    "Cost Analysis",
+                    "Ownership Structures",
+                    "Business Models",
+                    "Energy Communities",
+                    "Energy Market"
+                ]
+            }
+        ]
+    },
+    {
+        "project": "SimplyPositive",
+        "description": "SIMPLY POSITIVE supports the emergence of Positive Energy Districts and the transition to Climate Neutral Cities. On the example of four focus districts from different European Countries we will establish and test strategies how to tackle the necessary energy transition. We will analyze different areas which were selected as important by the focus districts:\n\n\u00b7       Photo voltaic solar panels (PV) maximization,\n\n\u00b7       integration of electric vehicles in mobility concepts and usage as energy storage,\n\n\u00b7       usage patterns to increase energy Efficiency and\n\n\u00b7       common climate and energy action plans.\n\nBased on a common Positive energy district definition framework for existing urban districts we will show how to best monitor and visualize achieved results. Fitting participation concepts shall ensure active stakeholder participation and motivate further cities to join the pathway towards reaching 1000s of Positive Energy Districts and Positive Energy Neighborhoods all over Europe.",
+        "keywords": [
+            "Mobility",
+            "PED boundaries",
+            "Energy Efficiency",
+            "Local Renewable Production",
+            "Energy Savings",
+            "interoperable databases",
+            "enhanced stakeholder cooperation"
+        ],
+        "deliverables": [
+            {
+                "name": "D3.1 Framework definition status and Methodology description for SimplyPositive",
+                "description": "null",
+                "keywords": [
+                    "PED boundaries"
+                ]
+            },
+            {
+                "name": "D4.1 Geospatial map and report on georeferenced multi-layer mapping of the PV potential on the example of Focus District of Amsterdam",
+                "description": "null",
+                "keywords": [
+                    "Urban planning tools",
+                    "Strategic planning",
+                    "Local Renewable Production"
+                ]
+            },
+            {
+                "name": "D4.2 Report on urban policy suggestions regarding automated choice of installation modes and expansion to various panels dimensions",
+                "description": "null",
+                "keywords": [
+                    "Urban planning tools",
+                    "District typologies",
+                    "Decision Support Tools"
+                ]
+            },
+            {
+                "name": "D4.3. Feasibility study on e-mobility support through local DERs with expected short, mid, & long-term impact on grid level",
+                "description": "null",
+                "keywords": [
+                    "Mobility",
+                    "Simulation",
+                    "Modeling Tools"
+                ]
+            },
+            {
+                "name": "http://simplypositive.eu/wp-content/uploads/2024/12/D4.4-Demand-side-actions-of-residents-to-reduce-energy-consumption-and-carbon-footprint-in-focus-districts_final.pdf",
+                "description": "null",
+                "keywords": [
+                    "Everyday Practices",
+                    "Behavioural Change",
+                    "Energy Savings"
+                ]
+            },
+            {
+                "name": "D4.6: Guidelines on how to use the SECAP methodology to trigger flagship PEDs within a city",
+                "description": "null",
+                "keywords": [
+                    "Strategic planning",
+                    "Monitoring",
+                    "City Missions",
+                    "Decision Support Tools"
+                ]
+            },
+            {
+                "name": "D5.1. Target Action plan with Sets of Sustainable Indicators",
+                "description": "null",
+                "keywords": [
+                    "Decision Support Tools",
+                    "Political Engagement"
+                ]
+            },
+            {
+                "name": "PED Monitoring Tool",
+                "description": "null",
+                "keywords": [
+                    "Monitoring"
+                ]
+            },
+            {
+                "name": "T6.4 Local Authorities' Policies to Support Positive Energy Districts",
+                "description": "null",
+                "keywords": [
+                    "Multi-level Legislation",
+                    "Governance Structure",
+                    "Regulation and Subsidies"
+                ]
+            },
+            {
+                "name": "D6.2. Semi-annually visualization of PV installations progress per neighbourhood based on the Focus District in Amsterdam including a PV development strategy showing unused potential",
+                "description": "null",
+                "keywords": [
+                    "Strategic planning",
+                    "Monitoring",
+                    "Local Renewable Production"
+                ]
+            }
+        ]
+    },
+    {
+        "project": "TRANS-PED",
+        "description": "Trans-PED was a 2-year pilot project to advance the governance approach for positive energy district stakeholders to better realise deep changes to their cities. Trans-PED was an international project involving 11 partners from Austria, Belgium, and Sweden, led by KTH Royal institute of Technology and co-funded by JPI Urban Europe. The team has been developing advancements for the governance approach through collaboration with five established and aspirational PEDs.",
+        "keywords": [
+            "Wellbeing",
+            "Social Innovation",
+            "Cultural Context",
+            "interoperable databases",
+            "enhanced stakeholder cooperation"
+        ],
+        "deliverables": [
+            {
+                "name": "UP-SCALING, GROWTH AND REPLICATION OF POSITIVE ENERGY DISTRICTS",
+                "description": "null",
+                "keywords": [
+                    "Scalability"
+                ]
+            },
+            {
+                "name": "TRANSVERSAL ANALYSIS OF TRANS-PED CASE STUDIES",
+                "description": "null",
+                "keywords": [
+                    "Narrative",
+                    "Social Innovation",
+                    "Cultural ontext"
+                ]
+            },
+            {
+                "name": "CATALOGUE OF PED ASSESSMENT PARAMETERS",
+                "description": "null",
+                "keywords": []
+            },
+            {
+                "name": "PED ASSESSMENT TOOLBOX",
+                "description": "null",
+                "keywords": [
+                    "Monitoring"
+                ]
+            },
+            {
+                "name": "co-production toolbox for peds",
+                "description": "null",
+                "keywords": [
+                    "Community Engagement",
+                    "Co-Creation"
+                ]
+            },
+            {
+                "name": "REPORT ON RESPONSIBLE INNOVATION IN PEDS",
+                "description": "null",
+                "keywords": [
+                    "Social Innovation"
+                ]
+            },
+            {
+                "name": "RESPONSIBLE INNOVATION IN AND FOR PEDS",
+                "description": "null",
+                "keywords": [
+                    "Social Innovation"
+                ]
+            }
+        ]
+    },
+    {
+        "project": "Cities4PEDs",
+        "description": "Exploring city levers to enable Positive Energy Districts (PEDs) across diverging contexts",
+        "keywords": [
+            "Ownership Structures",
+            "Community Engagement",
+            "Narrative",
+            "Policy",
+            "District typologies",
+            "PED boundaries",
+            "Co-Creation",
+            "Monitoring",
+            "Modeling Tools",
+            "City Missions",
+            "Decision Support Tools",
+            "Governance Structure",
+            "Regulation and Subsidies",
+            "interoperable databases",
+            "enhanced stakeholder cooperation"
+        ],
+        "deliverables": [
+            {
+                "name": "Definition of \u2018Positive Energy District\u2019",
+                "description": "null",
+                "keywords": [
+                    "PED boundaries",
+                    "Simulation",
+                    "Modeling Tools"
+                ]
+            },
+            {
+                "name": "PED Atlas",
+                "description": "For a city to embark on developing a Positive Energy District (PED), the framework conditions, such as political mandate, legal, financial and organisational structures, etc. will have to be in place or established over time. The Cities4PEDs project has investigated the framework conditions for developing PEDs in three cities, Brussels, Stockholm and Vienna and further interesting PED-relevant projects across Europe.  Twenty-five PED-relevant projects were identified by the consortium for further investigation. Out of this list, seven projects were selected for in-depth interviews based on their holistic approach to sustainability at large but in particular, their relevance from a PED perspective. The investigations have been analysed and a multidisciplinary overview of the different aspects of concern for the realization of PEDs has been developed. This PED Atlas is a documentation of the process, the known framework conditions and PED elements.",
+                "keywords": [
+                    "Multi-level Legislation",
+                    "District Regulation",
+                    "Participative Instruments",
+                    "Urban planning tools",
+                    "District typologies",
+                    "Governance Framework",
+                    "Governance Structure",
+                    "Regulation and Subsidies"
+                ]
+            },
+            {
+                "name": "Enabling PEDs through city instruments",
+                "description": "null",
+                "keywords": [
+                    "District Regulation",
+                    "Urban planning tools",
+                    "City Missions"
+                ]
+            },
+            {
+                "name": "Towards co-ownership and inclusive PED development",
+                "description": "null",
+                "keywords": [
+                    "Community Engagement",
+                    "Narrative",
+                    "Social Innovation",
+                    "Cultural ontext",
+                    "Co-Creation"
+                ]
+            },
+            {
+                "name": "Monitoring Framework",
+                "description": "null",
+                "keywords": [
+                    "Monitoring"
+                ]
+            }
+        ]
+    },
+    {
+        "project": "FLEXPOSTS",
+        "description": "Positive Energy Districts (PEDs) are areas with a net positive energy balance annually. These districts are crucial \nin the energy transition, but implementing them is difficult because of organisational, regulatory and planning \nissues. FLEXPOSTS aims to improve the implementation process of PEDs, focusing on flexible energy assets. This \nintegrates PEDs into urban planning and energy system planning. Organisational structures are developed and \nassessed, providing decision-makers the toolkit for implementation. FLEXPOSTS puts findings into practice in two \ndemonstration districts in Leeuwarden (NL) and Aalborg (DK), establishing a PED network with relevant \nstakeholders, Business Models, and strategies for facilitating development of PEDs.",
+        "keywords": [
+            "Business Models",
+            "Energy Market",
+            "Policy",
+            "Strategic planning",
+            "Simulation",
+            "Modeling Tools",
+            "GHG Emissions",
+            "PE Balance",
+            "Decision Support Tools",
+            "Demand-Supply Balance",
+            "Multi-Commodity ES",
+            "interoperable databases",
+            "enhanced stakeholder cooperation"
+        ],
+        "deliverables": []
+    },
+    {
+        "project": NaN,
+        "description": NaN,
+        "keywords": [
+            "interoperable databases",
+            "enhanced stakeholder cooperation"
+        ],
+        "deliverables": []
+    }
+]
