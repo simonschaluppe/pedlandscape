@@ -1,10 +1,8 @@
-
-
 from pathlib import Path
 import random
-
 import deengi
 import numpy as np
+import os
 
 IMAGE_FOLDER_PATH = 'assets/img'
 
@@ -51,7 +49,7 @@ def get_categorized_assets(image_folder_path=None) -> dict:
                 print(f"Non-image file {tile} in {category=}")
                 continue
             
-            landscape[category.name][tile.name[:-4].upper()] = tile.as_posix().upper()
+            landscape[category.name][tile.name[:-4]] = tile.as_posix()
     return landscape
 
 def get_all_assets(categorized_assets):
@@ -63,7 +61,6 @@ def get_all_assets(categorized_assets):
 
 class Landscape:
     def __init__(self, image_folder_path=IMAGE_FOLDER_PATH, layout="pestel", debug=True):
-        
         
         self.background_colors = {
             'Economic': (224,233,198),
@@ -123,31 +120,48 @@ class Landscape:
         self.add_tiles_to_keywords(debug=debug)
         
         
+        self.project_name = "Unbekanntes Projekt"
+        self.project_kw_default_amount = 10
+        self.project_keywords = self.random_project_keywords()
+        
+
         self.labels_visible = True
         self.headers_visible = True
         self.labels = self.add_labels_to_keywords()
         self.headers = self.create_header_labels()
+        self.heading = self.create_heading()
 
         self.register_renderables()
         self.set_layout(self.layout_name)
-                
-        self.project_kw_default_amount = 10
-        self.project_keywords = self.random_project_keywords()
-        
+            
+
         self._p = False
         self.bind_keys()
         
-
-        
         self.layout_tiles()
-        self.layout_headers()
-            
+        self.layout_headers()  
     
     def random_project_keywords(self, n = 10):
         return random.sample(self.keyword_names, n)
 
-    def set_project_keywords(self, kws=None):
-        self.project_keywords = kws or self.random_project_keywords()
+    def set_project(self, project_dict):
+        print("setting project with dict:", project_dict)
+        """Set the project name and keywords from a dictionary."""
+        if "project" in project_dict:
+            self.project_name = project_dict["project"]
+            self.heading.text = self.project_name
+        if "keywords" in project_dict:
+            self.set_project_keywords(project_dict["keywords"])
+
+        
+        if self.engine.debugmode:
+            print("Project Name set to:", self.project_name)
+            print("Project Keywords set to:", self.project_keywords)
+        
+        self.highlight_project()
+
+    def set_project_keywords(self, keywords:list):
+        self.project_keywords = keywords or self.random_project_keywords()
         if self.engine.debugmode:
             print("Project Keywords set to:", self.project_keywords)
         self.highlight_project()
@@ -160,7 +174,6 @@ class Landscape:
         engine.show_background((230,221,204))
         return engine
 
-
     def pestel_layout(self):
         """returns a dict of locations for each keyword"""
         self.anchors = self.pestel_anchors
@@ -169,7 +182,6 @@ class Landscape:
     def line_layout(self):        
         self.anchors = self.line_anchors
         return create_layout(self.assets, self.line_anchors, get_line_positions)
-
         
     def add_tiles_to_keywords(self, debug=True):
         """returns a list of deengi.renderables.Tile instances"""
@@ -188,7 +200,7 @@ class Landscape:
             label = deengi.renderables.ui.Label((0,0), 
                                         text=name.replace(" ", "\n"),
                                         color=color,
-                                        size=16,
+                                        size=28,
                                         outline_color=bgcolor)
             label.visible = self.labels_visible
             self.keywords[name]['label'] = label
@@ -197,16 +209,15 @@ class Landscape:
             
     def create_header_labels(self):
         headers = {}
-        for catname in self.assets.keys():
+        """ for catname in self.assets.keys():
             color = self.colors[catname]
             bgcolor = self.background_colors[catname]
             catlabel = deengi.renderables.ui.Label((0,0), text=catname, color=bgcolor, outline_color=color, size=36)
             catlabel.font = self.engine.renderer.titlefont
             catlabel.visible = self.headers_visible
-            headers[catname] = catlabel
+            headers[catname] = catlabel """
         return headers
         
-    
     def layout_tiles(self):
         """set tile and label positions according to layout"""
         for kw, pos in self.layout().items():
@@ -228,6 +239,18 @@ class Landscape:
         else:
             raise ValueError(f"Invalid layout: {layoutname}")
         
+    def create_heading(self):
+        heading = deengi.renderables.ui.Label(
+            (0, 0),  # Position at the top of the screen
+            text = self.project_name,
+            color = (255, 255, 255),  # White text
+            size = 128,  # Large font size
+            outline_color = (0, 0, 0),  # Black outline
+            font = self.engine.renderer.titlefont
+        )
+        heading.pos = (-9, 3)  # Adjust position to center it
+        return heading      
+        
     def register_renderables(self):
         for kw in self.keywords:
             self.engine.add_to_layer("main", self.keywords[kw]["tile"])
@@ -235,6 +258,8 @@ class Landscape:
             self.engine.add_to_layer("main", self.keywords[kw]["label"])
         for l in self.headers.values():
             self.engine.add_to_layer("main", l)
+
+        self.engine.add_to_layer("ui", self.heading)
             
         
     def highlight_project(self):
@@ -301,21 +326,39 @@ class Landscape:
         
     
 if __name__ == '__main__':
-    landscape = Landscape(layout="pestel", debug=True)
+    # Set correct path for the script
+    os.chdir(Path(__file__).parent.resolve())
+
+    # Create a Landscape instance
+    landscape = Landscape(layout="pestel", debug=False)
     
     print(landscape.keyword_names)
     
+    # import project keywords
     import json
-    with open("all_results_may.json", "r", encoding="utf-8") as f:
+    with open("all_results_may_fixedkeywords.json", "r", encoding="utf-8") as f:
         projects = json.load(f)
-    
+
+    print(projects[2])
+    landscape.set_project(projects[0])  # Set the first project as an example
     from functools import partial
     for i, project in enumerate(projects):
-        kw_upper = set(k.upper() for k in project["keywords"])
-        print(len(kw_upper), kw_upper)
-        print(len(set(landscape.keyword_names) & kw_upper))
-        print(len(kw_upper - set(landscape.keyword_names)), kw_upper - set(landscape.keyword_names))
-        print("___")
-        landscape.engine.bind_key(str(i+1), lambda: landscape.set_project_keywords(list(set(landscape.keyword_names) & kw_upper)), binding_name=f"Project {i+1}")
+        #projectname = project["project"]
+        #keywords = project["keywords"]
+        #deliverables = project["deliverables"]
+        #listcopy = project["keywords"].copy()
+        #kw_upper = set(k.upper() for k in project["keywords"])
+        #kw_upper = set(k for k in project["keywords"])
+
+        #print(len(kw_upper), kw_upper)
+        #print(len(set(landscape.keyword_names) & kw_upper))
+        #print(len(kw_upper - set(landscape.keyword_names)), kw_upper - set(landscape.keyword_names))
+        #print("___")
+
+        cb = partial(landscape.set_project, project)
+
+        print("binding key", i+1, "to project", project["project"])
+        landscape.engine.bind_key(str(i+1), cb, binding_name=f"Project {i+1} {project["project"]}")
     
     landscape.show()
+    
