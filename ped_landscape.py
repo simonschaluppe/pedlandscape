@@ -3,6 +3,7 @@ import random
 import deengi
 import numpy as np
 import os
+from datetime import datetime
 
 IMAGE_FOLDER_PATH = 'assets/img'
 
@@ -120,7 +121,7 @@ class Landscape:
         self.add_tiles_to_keywords(debug=debug)
         
         
-        self.project_name = "Unbekanntes Projekt"
+        self.project_name = "Keines"
         self.project_kw_default_amount = 10
         self.project_keywords = self.random_project_keywords()
         
@@ -143,22 +144,26 @@ class Landscape:
     
     def random_project_keywords(self, n = 10):
         return random.sample(self.keyword_names, n)
-
-    def set_project(self, project_dict):
-        print("setting project with dict:", project_dict)
-        """Set the project name and keywords from a dictionary."""
-        if "project" in project_dict:
-            self.project_name = project_dict["project"]
-            self.heading.text = self.project_name
-        if "keywords" in project_dict:
-            self.set_project_keywords(project_dict["keywords"])
-
-        
+    
+    def set_tileset(self, title, keywords:list):
+        """Set the tileset for the landscape."""
+        self.project_name = title or ""
+        self.heading.text = self.project_name
+        self.project_keywords = keywords or self.random_project_keywords()
         if self.engine.debugmode:
             print("Project Name set to:", self.project_name)
             print("Project Keywords set to:", self.project_keywords)
-        
         self.highlight_project()
+
+
+    def set_project(self, project_dict):
+        self.set_tileset(title=project_dict.get("project", "Unbekanntes Projekt"),
+                            keywords=project_dict.get("keywords", self.random_project_keywords(self.project_kw_default_amount)))
+        
+    def set_deliverables(self, deliverable_dict):
+        """Set the deliverables for the project."""
+        self.set_tileset(title=deliverable_dict.get("name", "Unbekanntes Deliverable"),
+                            keywords=deliverable_dict.get("keywords", self.random_project_keywords(self.project_kw_default_amount)))
 
     def set_project_keywords(self, keywords:list):
         self.project_keywords = keywords or self.random_project_keywords()
@@ -209,13 +214,13 @@ class Landscape:
             
     def create_header_labels(self):
         headers = {}
-        """ for catname in self.assets.keys():
+        for catname in self.assets.keys():
             color = self.colors[catname]
             bgcolor = self.background_colors[catname]
             catlabel = deengi.renderables.ui.Label((0,0), text=catname, color=bgcolor, outline_color=color, size=36)
             catlabel.font = self.engine.renderer.titlefont
             catlabel.visible = self.headers_visible
-            headers[catname] = catlabel """
+            headers[catname] = catlabel
         return headers
         
     def layout_tiles(self):
@@ -304,7 +309,20 @@ class Landscape:
         self.set_layout(self.layout_name)
         self.layout_tiles()
         self.layout_headers()
-                   
+
+    def take_screenshot(self, filename=None):
+        """Speichert einen Screenshot des aktuellen Engine-Bildschirms."""
+        screenshot_dir = Path("Screenshots")
+        screenshot_dir.mkdir(parents=True, exist_ok=True)  # Ordner anlegen falls nicht vorhanden
+
+        if filename is None:
+            filename = self.project_name + f"_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
+        
+        filepath = screenshot_dir / filename
+
+        surface = deengi.engine.pygame.display.get_surface()
+        deengi.engine.pygame.image.save(surface, str(filepath))
+        print(f"Screenshot saved at {filename}")              
     
     def bind_keys(self):
         engine = self.engine
@@ -316,6 +334,7 @@ class Landscape:
         engine.bind_key("l", self.toggle_label_visibility)
         engine.bind_key("h", engine.toggle_visibility_cb(*self.headers.values()))
         engine.bind_key("a", self.toggle_layout)
+        engine.bind_key("s", self.take_screenshot, binding_name="Screenshot speichern")
         
     def show(self):
         for key, bind_type, label in self.engine.get_keybinds():
@@ -332,33 +351,21 @@ if __name__ == '__main__':
     # Create a Landscape instance
     landscape = Landscape(layout="pestel", debug=False)
     
-    print(landscape.keyword_names)
+    #print(landscape.keyword_names)
     
     # import project keywords
     import json
     with open("all_results_may_fixedkeywords.json", "r", encoding="utf-8") as f:
         projects = json.load(f)
 
-    print(projects[2])
-    landscape.set_project(projects[0])  # Set the first project as an example
+   #landscape.set_project(projects[0])  # Set the first project as an example
     from functools import partial
-    for i, project in enumerate(projects):
-        #projectname = project["project"]
-        #keywords = project["keywords"]
-        #deliverables = project["deliverables"]
-        #listcopy = project["keywords"].copy()
-        #kw_upper = set(k.upper() for k in project["keywords"])
-        #kw_upper = set(k for k in project["keywords"])
+    for i, deliverable in enumerate(projects[0]["deliverables"]):
+        print(deliverable)
+        cb = partial(landscape.set_deliverables, deliverable)
 
-        #print(len(kw_upper), kw_upper)
-        #print(len(set(landscape.keyword_names) & kw_upper))
-        #print(len(kw_upper - set(landscape.keyword_names)), kw_upper - set(landscape.keyword_names))
-        #print("___")
-
-        cb = partial(landscape.set_project, project)
-
-        print("binding key", i+1, "to project", project["project"])
-        landscape.engine.bind_key(str(i+1), cb, binding_name=f"Project {i+1} {project["project"]}")
+        print("binding key", i+1, "to project", deliverable["name"])
+        landscape.engine.bind_key(str(i+1), cb, binding_name=f"Project {i+1} {deliverable["name"]}")
     
     landscape.show()
     
