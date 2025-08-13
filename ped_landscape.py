@@ -3,6 +3,7 @@ import random
 import deengi
 import numpy as np
 import os
+import json
 from datetime import datetime
 
 IMAGE_FOLDER_PATH = 'assets/img'
@@ -316,7 +317,8 @@ class Landscape:
         screenshot_dir.mkdir(parents=True, exist_ok=True)  # Ordner anlegen falls nicht vorhanden
 
         if filename is None:
-            filename = self.project_name + f"_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
+            #filename = self.project_name + f"_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
+            filename = "NoText_" + self.project_name + ".png"
         
         filepath = screenshot_dir / filename
 
@@ -342,6 +344,23 @@ class Landscape:
         
         #self.engine.add_callback()
         self.engine.run()
+
+    def set_project_keywords_from_file(self, filename, type="project", project_number = 0, print_projects=True):
+        import json
+        with open(filename, "r", encoding="utf-8") as f:
+            projects = json.load(f)
+
+        if type == "deliverable":
+            projects = projects[project_number]["deliverables"]
+            for dicts in projects:
+                dicts["project"] = dicts.pop("name")
+
+        from functools import partial
+        for i, project in enumerate(projects):
+            print(project)
+            cb = partial(landscape.set_project, project)
+            print("binding key", i+1, "to project", project["project"])
+            landscape.engine.bind_key(str(i+1), cb, binding_name=f"Project {i+1} {project["project"]}")
         
     
 if __name__ == '__main__':
@@ -351,21 +370,9 @@ if __name__ == '__main__':
     # Create a Landscape instance
     landscape = Landscape(layout="pestel", debug=False)
     
-    #print(landscape.keyword_names)
-    
-    # import project keywords
-    import json
-    with open("all_results_may_fixedkeywords.json", "r", encoding="utf-8") as f:
-        projects = json.load(f)
+    filename = "all_results_may_fixedkeywords.json"
 
-   #landscape.set_project(projects[0])  # Set the first project as an example
-    from functools import partial
-    for i, deliverable in enumerate(projects[0]["deliverables"]):
-        print(deliverable)
-        cb = partial(landscape.set_deliverables, deliverable)
-
-        print("binding key", i+1, "to project", deliverable["name"])
-        landscape.engine.bind_key(str(i+1), cb, binding_name=f"Project {i+1} {deliverable["name"]}")
+    landscape.set_project_keywords_from_file(filename, type="project", print_projects=True)
     
     landscape.show()
     
